@@ -5,7 +5,7 @@ import mapboxgl from 'mapbox-gl';
 import { MapPin, Clock, Car, Plane } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const MAPBOX_TOKEN = 'pk.eyJ1IjoibmV4Y21hcCIsImEiOiJjbTY5N3Q4OTgwODduMmxzY2s5aDA0bXp1In0.wnyDsAjgVJw794zpvWf93g';
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN || 'pk.eyJ1IjoibmV4Y21hcCIsImEiOiJjbTY5N3Q4OTgwODduMmxzY2s5aDA0bXp1In0.wnyDsAjgVJw794zpvWf93g';
 const MAP_CENTER: [number, number] = [78.04647829910338, 30.461762594086988];
 
   const attractionsData = [

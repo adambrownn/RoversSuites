@@ -28,7 +28,7 @@ const Booking = () => {
     setStatus('idle');
     try {
   // Formspree endpoint for Rovers Suites Booking
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqadqqon';
+  const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xqadqqon';
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: {
