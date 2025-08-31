@@ -1,5 +1,5 @@
-import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Testimonials = () => {
   const testimonials = [
@@ -26,16 +26,17 @@ const Testimonials = () => {
     }
   ];
 
+  const { t } = useLanguage();
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-            Guest Experiences
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+            {t('testimonials.title')}
           </h2>
           <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8"></div>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Don't just take our word for it – hear what our guests have to say about their mountain retreat experience
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
@@ -64,7 +65,7 @@ const Testimonials = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-slate-600 mb-4">Join hundreds of satisfied guests who chose Rovers Suites</p>
+          <p className="text-slate-600 mb-4">{t('testimonials.join')}</p>
           <div className="flex items-center justify-center space-x-2 text-lg">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
@@ -72,7 +73,7 @@ const Testimonials = () => {
               ))}
             </div>
             <span className="font-semibold text-slate-800">4.9/5</span>
-            <span className="text-slate-500">(127 reviews)</span>
+            <span className="text-slate-500">(127 {t('testimonials.reviews')})</span>
           </div>
         </div>
       </div>

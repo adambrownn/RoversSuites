@@ -6,6 +6,7 @@ import About from './components/About';
 import Features from './components/Features';
 import Location from './components/Location';
 import Gallery from './components/Gallery';
+import OTASection from './components/OTASection';
 import Booking from './components/Booking';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
@@ -43,8 +44,9 @@ function App() {
         <Features />
         <Location />
         <Gallery />
-        <Testimonials />
-        <Booking />
+  <OTASection />
+  <Booking />
+  <Testimonials />
         <Footer />
         <ChatWidget />
       </div>

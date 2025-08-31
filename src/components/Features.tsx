@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   Bed, 
   Mountain, 
@@ -9,48 +8,50 @@ import {
   Users, 
   ShieldCheck 
 } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Features = () => {
+  const { t } = useLanguage();
   const features = [
     {
       icon: <Bed className="h-8 w-8" />,
-      title: "Luxury 2BHK Apartment",
-      description: "Spacious layout with two bedrooms and two bathrooms"
+      title: t('features.luxury'),
+      description: t('features.luxury.desc')
     },
     {
       icon: <Mountain className="h-8 w-8" />,
-      title: "Stunning Mountain Views",
-      description: "Private balcony with panoramic vistas"
+      title: t('features.views'),
+      description: t('features.views.desc')
     },
     {
       icon: <ChefHat className="h-8 w-8" />,
-      title: "Fully Equipped Kitchen",
-      description: "Cook and dine with ease"
+      title: t('features.kitchen'),
+      description: t('features.kitchen.desc')
     },
     {
       icon: <Tv className="h-8 w-8" />,
-      title: "Modern Amenities",
-      description: "Flat-screen TV, free WiFi, bed linen, towels, and more"
+      title: t('features.amenities'),
+      description: t('features.amenities.desc')
     },
     {
       icon: <Car className="h-8 w-8" />,
-      title: "Free Private Parking",
-      description: "Safe and convenient parking space"
+      title: t('features.parking'),
+      description: t('features.parking.desc')
     },
     {
       icon: <Plane className="h-8 w-8" />,
-      title: "Airport Transfers Available",
-      description: "Hassle-free travel arrangements"
+      title: t('features.transfers'),
+      description: t('features.transfers.desc')
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Personalised Hospitality",
-      description: "Dedicated host ensuring a memorable stay"
+      title: t('features.hospitality'),
+      description: t('features.hospitality.desc')
     },
     {
       icon: <ShieldCheck className="h-8 w-8" />,
-      title: "Non-Smoking Property",
-      description: "For a cleaner, healthier environment"
+      title: t('features.nonsmoking'),
+      description: t('features.nonsmoking.desc')
     }
   ];
 
@@ -58,16 +59,16 @@ const Features = () => {
     <section id="features" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-            Why Guests Love Rovers Suites
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+            {t('features.title')}
           </h2>
           <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8"></div>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Every detail has been carefully considered to ensure your mountain retreat exceeds expectations
+            {t('features.subtitle')}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 md:gap-8">
           {features.map((feature, index) => (
             <div 
               key={index}

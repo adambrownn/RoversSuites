@@ -1,49 +1,58 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import galleryBedroomMaster from '../assets/images/gallery-bedroom-master.jpeg';
+import galleryLivingRoom from '../assets/images/gallery-living-room.jpeg';
+import galleryBalconyPanoramic from '../assets/images/gallery-balcony-panoramic.jpeg';
+import galleryKitchenEquipped from '../assets/images/gallery-kitchen-equipped.jpeg';
+import galleryBedroomSecond from '../assets/images/gallery-bedroom-second.jpeg';
+import galleryMountainViews from '../assets/images/gallery-mountain-views.jpeg';
+import galleryBathroomModern from '../assets/images/gallery-bathroom-modern.jpeg';
+import galleryExteriorBuilding from '../assets/images/gallery-exterior-building.jpeg';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-
+  const { t } = useLanguage();
   const images = [
     {
-      src: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Master bedroom with mountain view",
-      category: "Bedroom"
+      src: galleryBedroomMaster,
+      alt: t('gallery.bedroom1.alt') || "Master bedroom with mountain view",
+      category: t('gallery.bedroom') || "Bedroom"
     },
     {
-      src: "https://images.pexels.com/photos/1428348/pexels-photo-1428348.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Spacious living room",
-      category: "Living Area"
+      src: galleryLivingRoom,
+      alt: t('gallery.living.alt') || "Spacious living room",
+      category: t('gallery.living') || "Living Area"
     },
     {
-      src: "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Private balcony with panoramic views",
-      category: "Balcony"
+      src: galleryBalconyPanoramic,
+      alt: t('gallery.balcony.alt') || "Private balcony with panoramic views",
+      category: t('gallery.balcony') || "Balcony"
     },
     {
-      src: "https://images.pexels.com/photos/2062426/pexels-photo-2062426.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Modern fully equipped kitchen",
-      category: "Kitchen"
+      src: galleryKitchenEquipped,
+      alt: t('gallery.kitchen.alt') || "Modern fully equipped kitchen",
+      category: t('gallery.kitchen') || "Kitchen"
     },
     {
-      src: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Second bedroom",
-      category: "Bedroom"
+      src: galleryBedroomSecond,
+      alt: t('gallery.bedroom2.alt') || "Second bedroom",
+      category: t('gallery.bedroom') || "Bedroom"
     },
     {
-      src: "https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Mountain views from the property",
-      category: "View"
+      src: galleryMountainViews,
+      alt: t('gallery.view.alt') || "Mountain views from the property",
+      category: t('gallery.view') || "View"
     },
     {
-      src: "https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Modern bathroom",
-      category: "Bathroom"
+      src: galleryBathroomModern,
+      alt: t('gallery.bathroom.alt') || "Modern bathroom",
+      category: t('gallery.bathroom') || "Bathroom"
     },
     {
-      src: "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Exterior view of the building",
-      category: "Exterior"
+      src: galleryExteriorBuilding,
+      alt: t('gallery.exterior.alt') || "Exterior view of the building",
+      category: t('gallery.exterior') || "Exterior"
     }
   ];
 
@@ -56,16 +65,16 @@ const Gallery = () => {
     <section id="gallery" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-            Gallery
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+            {t('gallery.title')}
           </h2>
           <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8"></div>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Take a virtual tour of our luxury mountain retreat and discover the comfort that awaits
+            {t('gallery.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 xs:gap-4 sm:gap-6">
           {images.map((image, index) => (
             <div
               key={index}
@@ -75,6 +84,7 @@ const Gallery = () => {
               <img
                 src={image.src}
                 alt={image.alt}
+                loading="lazy"
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
