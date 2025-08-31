@@ -1,8 +1,8 @@
 // This script deploys the Vite build output to GitHub Pages using the gh-pages package.
 // Add this to your package.json scripts as: "deploy": "node scripts/deploy-gh-pages.js"
 
-const { execSync } = require('child_process');
-const fs = require('fs');
+import { execSync } from 'child_process';
+import fs from 'fs';
 
 // Ensure build output exists
 if (!fs.existsSync('dist')) {
